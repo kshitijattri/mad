@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Leave Review{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Leave a Review for Provider</h2>
+    <form action="{{ url_for('leave_review', service_request_id=service_request.id) }}" method="POST">
+        <div class="form-group">
+            <label for="review">Review:</label>
+            <textarea class="form-control" id="review" name="review" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+</div>
+{% endblock %}

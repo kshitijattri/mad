@@ -1,0 +1,572 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #eff6e0; /* Warm, trustworthy color */
+    padding: 15px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #000000; /* Dark text for contrast */
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #212529;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0056b3; /* Color change on hover for an interactive feel */
+}
+/* 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Show the dropdown content on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Add hover effect for the dropdown button */
+  .dropdown .dropbtn:hover {
+    background-color: #007bff;
+    color: white;
+  } */
+
+.job-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-job {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.search-job:hover {
+    background-color: #606c38; /* Hover effect */
+}
+
+.login {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.login:hover {
+    background-color: #9a031e; /* Hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .job-search {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .search-job, .login {
+        margin: 5px 0;
+    }
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #eff6e0;
+    padding: 40px;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1 1 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #000;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.btn-book {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: #780000;
+}
+
+/* Service Cards */
+.hero-services {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    gap: 15px;
+}
+
+.service-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.service-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #000;
+}
+
+.service-box p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.service-box a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+}
+
+/* Notification Box */
+.notification-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffd700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-box p {
+    margin: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        width: 80%;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .notification-box {
+        right: auto;
+        left: 20px;
+    }
+}
+
+/* Featured Services Section */
+.featured-services {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.featured-services h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.featured-services p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.subtext {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #888;
+}
+
+/* Service Cards */
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 18%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.rating span {
+    color: #ffba08;
+    font-size: 1.2rem;
+}
+
+.rating-value {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+.why-choose-us-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-left: 20px; /* Add left padding to shift the heading */
+}
+
+.why-choose-us-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.why-choose-us-section h2 {
+    font-size: 36px;
+    margin: 0;
+    color: #333;
+    position: relative;
+    left: -20px; /* Moves the text to the left */
+}
+
+.features {
+    display: flex;
+    justify-content: space-between; /* This aligns the items in one line */
+    gap: 20px;
+    flex-wrap: wrap; /* Allows the items to wrap on smaller screens */
+}
+
+.feature-item {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    width: 30%; /* Adjust this width to fit 3 items in one line */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+}
+
+@media (max-width: 768px) {
+    .feature-item {
+        width: 100%; /* Makes items full width on small screens */
+        margin-bottom: 20px;
+    }
+}
+
+#faq {
+    width: 80%;
+    margin: 40px auto;
+  }
+  
+  #faq h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .faq-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .faq-item input {
+    display: none;
+  }
+  
+  .faq-item label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 0;
+    position: relative;
+  }
+  
+  .faq-item label::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+  }
+  
+  .faq-item input:checked + label::after {
+    content: '-';
+  }
+  
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .faq-item input:checked ~ .faq-content {
+    max-height: 100px;
+    padding: 10px 0;
+  }
+  
+  .faq-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  #get-the-app {
+    padding: 40px;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .app-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .app-section p {
+    color: #b8b4c4;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .app-buttons {
+    margin: 20px 0;
+  }
+  
+  .app-buttons a {
+    margin: 0 10px;
+  }
+  
+  .app-buttons img {
+    width: 160px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .app-buttons img:hover {
+    transform: scale(1.05);
+  }
+  
+  .services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .services-column {
+    width: 20%;
+    text-align: left;
+  }
+  
+  .services-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .services-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .services-column li {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect: List items turn blue on hover */
+  .services-column li:hover {
+    color: #007bff; /* Blue color on hover */
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .services-column {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .app-buttons img {
+      width: 140px;
+    }
+  }
+  

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+ HandyNest-dashboard
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+      <li><a href="#" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="/customer_admin" class="{% if active_page == 'customers' %}active{% endif %}">Customers</a></li>
+      <li><a href="provider_admin" class="{% if active_page == 'providers' %}active{% endif %}">Providers</a></li>
+      <li><a href="/service_admin" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+      <li><a href="/servicerequest_admin" class="{% if active_page == 'service requests' %}active{% endif %}">Service Requests</a></li>
+      <!-- <li><a href="#" class="{% if active_page == 'create service' %}active{% endif %}">Create Service</a></li> -->
+      <li><a href="/admin_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+
+     <br>
+    <h2> welcome admin!</h2>
+    <br>
+   
+  </div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

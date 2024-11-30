@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+ HandyNest-dashboard
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+    .header-container {
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space between items */
+        align-items: center; /* Center items vertically */
+        margin-top: 13px;
+        margin-bottom: 20px; /* Space below the header */
+    }
+    
+    .header-container h2 {
+        margin: 0; /* Remove default margin */
+    }
+    
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- {% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %} -->
+
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+      <li><a href="/admin_dashboard" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="/customer_admin" class="{% if active_page == 'customers' %}active{% endif %}">Customers</a></li>
+      <li><a href="/provider_admin" class="{% if active_page == 'providers' %}active{% endif %}">Providers</a></li>
+      <li><a href="/service_admin" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+      <li><a href="/servicerequest_admin" class="{% if active_page == 'service requests' %}active{% endif %}">Service Requests</a></li>
+      <!-- <li><a href="#" class="{% if active_page == 'profile' %}active{% endif %}">Verify User</a></li> -->
+      <li><a href="/admin_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+    <div class="header-container">
+        <h2>Service Management</h2>
+        <a href="/create_service" class="btn btn-primary create-service-btn">Create Service</a>
+    </div>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for service in services %}
+        <tr>
+          <td>{{ service.id }}</td>
+          <td>{{ service.name }}</td>
+          <td>{{ service.description }}</td>
+          <td>{{ service.price }}</td>
+          <td>
+            <a href="{{ url_for('update_service', service_id=service.id) }}" type="button" class="btn btn-outline-warning">Update</a>
+            <form action="{{ url_for('delete_service', service_id=service.id) }}" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </form>
+          </td> 
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+ HandyNest-dashboard
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+  .flashes {
+    list-style-type: none;
+    padding: 0;
+    position: fixed;        /* Fixed position at the bottom */
+    left: 50%;              /* Center horizontally */
+    bottom: 20px;           /* Distance from the bottom of the page */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    z-index: 9999;          /* Ensure the flash messages are on top */
+    width: auto;
+    max-width: 500px;       /* Max width for the flash message box */
+    margin: 0;
+  }
+
+  .flashes li {
+    background-color: #ffffff;  /* White background */
+    color: #780000;             /* Red text color */
+    padding: 10px;
+    margin-bottom: 10px;         /* Space between messages */
+    opacity: 1;                  /* Make it visible initially */
+    text-align: center;          /* Center the text inside the box */
+    transition: opacity 0.5s ease-out; /* Smooth fade-out effect */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+      <li><a href="/customer_dashboard" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="#" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+      <li><a href="/my_bookings" class="{% if active_page == 'bookings' %}active{% endif %}">My Bookings</a></li>
+      <li><a href="#" class="{% if active_page == 'contact' %}active{% endif %}">Contact Us</a></li>
+      <li><a href="#" class="{% if active_page == 'profile' %}active{% endif %}">Profile</a></li>
+      <li><a href="/customer_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container-fluid full-page">
+  <div class="row">
+      <div class="col-md-6 slogan-section">
+          <h1>HandyNest</h1>
+          <p>Providing top-notch household services to make your life easier!</p>
+          <a href="/create_servicerequest" class="btn btn-primary create-service-btn">Create a Service</a>
+      </div>
+      <div class="col-md-6 image-section">
+          <img src="/static/images/cook.jpg" alt="HandyNest Image" class="img-fluid">
+      </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

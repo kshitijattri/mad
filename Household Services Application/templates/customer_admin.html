@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+HandyNest-dashboard
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+    <li><a href="/admin_dashboard" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+    <li><a href="/customer_admin" class="{% if active_page == 'customers' %}active{% endif %}">Customers</a></li>
+    <li><a href="/provider_admin" class="{% if active_page == 'providers' %}active{% endif %}">Providers</a></li>
+    <li><a href="/service_admin" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+    <li><a href="#" class="{% if active_page == 'service requests' %}active{% endif %}">Service Requests</a></li>
+    <!-- <li><a href="#" class="{% if active_page == 'profile' %}active{% endif %}">Verify User</a></li> -->
+    <li><a href="/admin_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+  <!-- <h1>Admin Dashboard</h1> -->
+  <br>
+  <h2>Customer Management</h2>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Date Created</th>
+        <!-- <th>Service Type</th> -->
+        <!-- <th>Experience</th> -->
+        <!-- <th>Verified</th> -->
+        <th>Blocked</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+      <tr>
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.date_created }}</td>
+        <td>
+          {% if customer.blocked %}
+          <span class="badge bg-danger">Blocked</span>
+          {% else %}
+          <span class="badge bg-success">Active</span>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{{ url_for('view_customer', customer_id=customer.id) }}" class="btn btn-outline-dark">View</a>
+          {% if customer.blocked %}
+          <form action="{{ url_for('unblock_customer', customer_id=customer.id) }}" method="POST"
+            style="display:inline;">
+            <button type="submit" class="btn btn-outline-success">Unblock</button>
+          </form>
+          {% else %}
+          <form action="{{ url_for('block_customer', customer_id=customer.id) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-outline-danger">Block</button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

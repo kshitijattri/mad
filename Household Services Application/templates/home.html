@@ -1,0 +1,275 @@
+{% extends 'layout.html'%}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}"
+{% endblock %}
+
+{% block  content %}
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>HandyNest</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <!-- <li class="dropdown">
+                    <a href="#" class="dropbtn">Services</a>
+                    <div class="dropdown-content">
+                      <a href="#">House Cleaning</a>
+                      <a href="#">Cook</a>
+                      <a href="#">Plumber</a>
+                      <a href="#">Electrician</a>
+                      <a href="#">Cook in Delhi</a>
+                      <a href="#">Cook in Bangalore</a>
+                      Add more services as needed
+                     </div> -->
+                  <!-- </li> --> 
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="job-search">
+           <a href="/provider_login"><button class="search-job">Become a Provider</button></a>
+           <a href="/customer_login"><button class="login">LOGIN</button></a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>INDIA'S TRUSTED HOME SERVICES</h1>
+        <p>HandyNest makes it easy to keep your home in order with reliable and professional services tailored to your needs.</p>
+        <a href="#" class="btn-book">BOOK NOW</a>
+    </div>
+    
+    <div class="hero-services">
+        <div class="service-box electrician">
+            <img src="static/images/electrician.jpg" Electrician Service">
+            <div class="service-info">
+                <h3>Electrician</h3>
+                <p>Wire you waiting? Choose Us for a "Shocking" Experience!</p>
+                <a href="#">See More</a>
+            </div>
+        </div>
+        <div class="service-box cooks">
+            <img src="static/images/cook.jpg" alt="Cook Service">
+            <div class="service-info">
+                <h3>Cooks</h3>
+                <p>Chef-approved, grandma-tested.</p>
+                <a href="#">See More</a>
+            </div>
+        </div>
+        <div class="service-box cleaning">
+            <img src="static/images/cleaning.jpg" alt="Cleaning Service">
+            <div class="service-info">
+                <h3>Cleaning</h3>
+                <p>Your mess is history when we're on the scene</p>
+                <a href="#">See More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Box
+    <div class="notification-box">
+        <p>This is a notification</p>
+    </div> -->
+</section>
+
+   <!-- Featured Services Section -->
+<section class="featured-services">
+    <h2>Our Featured Services</h2>
+    <p>Hire professionals, experienced specifically for your needs</p>
+    <p class="subtext">HandyNest offers completely certified workers with a complimentary replacement policy</p>
+
+    <div class="service-cards">
+        <div class="service-card">
+            <img src="static/images/plumbing.jpg" alt="Plumbing">
+            <h3>Plumbing</h3>
+            <div class="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                <span class="rating-value">4.3</span>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="static/images/cook2.jpg" alt="Cook">
+            <h3>Cooks</h3>
+            <div class="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                <span class="rating-value">4.8</span>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="static/images/electrician2.jpg" alt="Electrician">
+            <h3>Electrician</h3>
+            <div class="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                <span class="rating-value">4.9</span>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="static/images/cleaning2.webp" alt="Cleaning">
+            <h3>Cleaning</h3>
+            <div class="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                <span class="rating-value">4.7</span>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="static/images/painting.jpg" alt="Painting">
+            <h3>Painting</h3>
+            <div class="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                <span class="rating-value">4.4</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="why-choose-us" class="why-choose-us-section">
+    <div class="container">
+        <div class="section-header">
+            <img src="static/images/icon.webp" alt="Why Choose Us Icon" class="why-choose-us-icon">
+            <h2>Why Choose Us</h2>
+        </div>
+        <div class="features">
+            <div class="feature-item">
+                <img src="static/images/verification.png" alt="Verification & Assessment Icon" class="feature-icon">
+                <h3>Verification & Assessment</h3>
+                <p>Employing AI, we enhance our rigorous physical and telephonic verification processes to ensure the highest quality assessments of our workers.</p>
+            </div>
+            <div class="feature-item">
+                <img src="static/images/money3.png" alt="Transparent Pricing Icon" class="feature-icon">
+                <h3>Transparent Pricing</h3>
+                <p>You get what you pay for. Additionally, you get replacement guarantees, Covid-19 test reports, verification documents, and more!</p>
+            </div>
+            <div class="feature-item">
+                <img src="static/images/customer support.png" alt="Customer Support Icon" class="feature-icon">
+                <h3>Customer Support</h3>
+                <p>Our executives will always be there to hear you out and solve your issues.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>FAQs</h2>
+    <div class="faq-item">
+      <input type="checkbox" id="faq1">
+      <label for="faq1">How can I hire a electrician/plumber/cook from HandyNest?</label>
+      <div class="faq-content">
+        <p>You can hire professionals by visiting our website, selecting the type of service you need, and booking an appointment with one of our verified staff members.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <input type="checkbox" id="faq2">
+      <label for="faq2">What if I’m not satisfied with the services?</label>
+      <div class="faq-content">
+        <p>HandyNest offers a complimentary replacement policy within the first week if you’re not satisfied. Simply contact our customer support for assistance.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <input type="checkbox" id="faq3">
+      <label for="faq3">How much will a cook/plumber/painter cost in Delhi NCR?</label>
+      <div class="faq-content">
+        <p>The cost depends on the service and duration required. We provide transparent pricing based on your specific needs. Contact us for an accurate quote.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <input type="checkbox" id="faq4">
+      <label for="faq4">Why do your services seem more expensive than other helpers in the market?</label>
+      <div class="faq-content">
+        <p>Our workers are thoroughly verified and trained. We ensure you receive high-quality service with a replacement guarantee, which adds value and security.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <input type="checkbox" id="faq5">
+      <label for="faq5">Is a plumber/cook/painter from HandyNest reliable?</label>
+      <div class="faq-content">
+        <p>Yes, all our staff undergo rigorous verification processes and are trained to ensure reliability, professionalism, and safety.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <input type="checkbox" id="faq6">
+      <label for="faq6">Is it safe to hire a electrician/cook/painter during the pandemic?</label>
+      <div class="faq-content">
+        <p>Yes, we follow strict Covid-19 protocols, including regular health checks, mask mandates, and sanitization to ensure your safety.</p>
+      </div>
+    </div>
+</section>
+  
+<section id="get-the-app">
+    <div class="app-section">
+      <h2>GET THE APP</h2>
+      <p>Get the HandyNest App<br>Book. Track. Relax.</p>
+      <div class="app-buttons">
+        <a href="#" target="_blank">
+          <img src="static/images/apple-button.png" alt="Download on the App Store">
+        </a>
+        <a href="#" target="_blank">
+          <img src="static/images/googleplay-button.png" alt="Get it on Google Play">
+        </a>
+      </div>
+    </div>
+  
+    <div class="services">
+      <div class="services-column">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Electrician</li>
+          <li>Cook</li>
+          <li>Painter</li>
+          <li>Plumber</li>
+          <li>Cook in Delhi</li>
+          <li>Cook in Bangalore</li>
+        </ul>
+      </div>
+  
+      <div class="services-column">
+        <ul>
+          <li>Cook in Noida</li>
+          <li>Cook in Gurgaon</li>
+          <li>Cook in Pune</li>
+          <li>Electrician in Pune</li>
+          <li>Electrician in Delhi</li>
+          <li>Electrician in Gurgaon</li>
+          <li>Electrician in Bangalore</li>
+        </ul>
+      </div>
+  
+      <div class="services-column">
+        <ul>
+          <li>Painter in Noida</li>
+          <li>Painter in Ghaziabad</li>
+          <li>Painter in Faridabad</li>
+          <li>Painter in South Delhi</li>
+          <li>Painter in East Delhi</li>
+          <li>Painter in West Delhi</li>
+          <li>Painter in Bangalore</li>
+        </ul>
+      </div>
+  
+      <div class="services-column">
+        <ul>
+          <li>Painter in North Delhi</li>
+          <li>House Cleaning in Delhi</li>
+          <li>House Cleaning in Noida</li>
+          <li>House Cleaning in Gurgaon</li>
+          <li>House Cleaning in Pune</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+{% endblock  %}

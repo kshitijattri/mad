@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: black;
+}
+
+.side-navbar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    padding-top: 20px;
+    transition: 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.side-navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-navbar ul li {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.side-navbar ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 30px;
+}
+
+.side-navbar ul li a.active {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+
+.side-navbar ul li a:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.side-navbar .footer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.side-navbar .footer a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.side-navbar .footer .globe-icon {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.open-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    border: none;
+}
+
+.open-btn:hover, .close-btn:hover {
+    color: gray;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.dashboard-header {
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: black;
+}
+
+.dashboard-header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: gray;
+}
+
+.service-overview {
+    margin-top: 40px;
+}
+
+.service-overview h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.service-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 24px;
+    color: black;
+    margin: 0 0 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: gray;
+}
+
+.action-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: gray;
+}
+
+.full-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-service-btn {
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px; /* rounded corners */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #337ab7; /* blue color */
+    cursor: pointer;
+}
+
+.create-service-btn:hover {
+    background-color: #23527c; /* darker blue on hover */
+}
+
+.image-section {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

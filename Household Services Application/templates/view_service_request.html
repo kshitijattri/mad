@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Service Request
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Service Request Details:</h2>
+    <p><strong>Service Request ID :</strong> {{ service_request.id }}</p>
+    <p><strong>Customer ID :</strong> {{ service_request.customer_id }}</p>
+    <p><strong>Provider ID :</strong> {{ service_request.provider_id }}</p>
+    <p><strong>Service ID :</strong> {{ service_request.service_id }}</p>
+    <p><strong>Date Requested :</strong> {{ service_request.date_requested }}</p>
+    <p><strong>Time Preferred :</strong> {{ service_request.time }}</p>
+    <p><strong>Service Type :</strong> {{ service_request.service_type }}</p>
+    <p><strong>Description :</strong> {{ service_request.description }}</p>
+    <p><strong>Status :</strong> {{ service_request.status }}</p>
+    <p><strong>Review :</strong> {{ service_request.review }}</p>
+    <p><strong>Rating :</strong> {{ service_request.rating }}</p>
+    
+    <a href="{{ url_for('servicerequest_admin') }}" class="btn btn-outline-dark">Back to Service Requests</a>
+</div>
+{% endblock %}

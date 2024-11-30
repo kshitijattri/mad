@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+HandyNest-my bookings
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+  .header-container {
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space between items */
+    align-items: center;
+    /* Center items vertically */
+    margin-top: 33px;
+    margin-bottom: 20px;
+    /* Space below the header */
+  }
+
+  .header-container h2 {
+    margin: 0;
+    /* Remove default margin */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- {% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %} -->
+
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+    <li><a href="#" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+    <li><a href="/customer_admin" class="{% if active_page == 'customers' %}active{% endif %}">Customers</a></li>
+    <li><a href="provider_admin" class="{% if active_page == 'providers' %}active{% endif %}">Providers</a></li>
+    <li><a href="/service_admin" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+    <li><a href="/servicerequest_admin" class="{% if active_page == 'service requests' %}active{% endif %}">Service Requests</a></li>
+    <!-- <li><a href="#" class="{% if active_page == 'create service' %}active{% endif %}">Create Service</a></li> -->
+    <li><a href="/admin_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+  <div class="header-container">
+    <h2>Service Requests !</h2>
+  </div>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Service ID</th>
+        <th>Customer ID</th>
+        <th>Provider ID</th>
+        <!-- <th>Date</th> -->
+        <th>Time</th>
+        <th>Service</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Status</th>
+        <!-- <th>Review from Customer</th> -->
+        <!-- <th>Review from Provider</th> -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for service_request in service_requests %}
+      <tr>
+        <td>{{ service_request.id }}</td>
+        <td>{{ service_request.service_id }}</td>
+        <td>{{ service_request.customer_id }}</td>
+        <td>{{ service_request.provider_id }}</td>
+        <!-- <td>{{ service_request.date_requested }}</td> -->
+        <td>{{ service_request.time }}</td>
+        <td>{{ service_request.service_type }}</td>
+        <td>{{ service_request.description }}</td>
+        <td>{{ service_request.service_address }}</td>
+        <td>{{ service_request.status }}</td>
+        <!-- <td>{{ service_request.review }}</td>  -->
+        <td>
+          <a href="{{ url_for('view_service_request', service_request_id=service_request.id) }}"
+            class="btn btn-outline-info">View</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+ HandyNest-dashboard
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+      <li><a href="/provider_dashboard" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="/provider_servicerequests" class="{% if active_page == 'services' %}active{% endif %}">Service Requests</a></li>
+      <li><a href="/provider_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+
+  <br>
+ <h2> welcome Provider!</h2>
+ <br>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}

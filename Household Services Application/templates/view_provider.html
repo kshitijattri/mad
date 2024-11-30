@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Provider Profile
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Provider Profile: {{ provider.name }}</h2>
+    <p><strong>Username:</strong> {{ provider.username }}</p>
+    <p><strong>Name:</strong> {{ provider.name }}</p>
+    <p><strong>Service Type:</strong> {{ provider.service_type }}</p>
+    <!-- <p><strong>Experience:</strong> {{ provider.experience }} years</p> -->
+    <p><strong>Description:</strong> {{ provider.description }}</p>
+    <p><strong>Date Created:</strong> {{ provider.date_created }}</p>
+    
+    <!-- Document Section -->
+    <h3>Uploaded Document</h3>
+    <p><strong>Document Filename:</strong> {{ document_filename }}</p>
+    {% if document_filename != "No document uploaded" %}
+        <a href="{{ url_for('static', filename='uploads/' + document_filename) }}" target="_blank">View Document</a>
+    {% endif %}
+    
+    <!-- Provider Verification Status -->
+    <h3>Verification Status</h3>
+    <p>
+        {% if provider.verified %}
+            <span class="badge bg-success">Verified</span>
+        {% else %}
+            <span class="badge bg-danger">Not Verified</span>
+        {% endif %}
+    </p>
+    
+    <!-- Add any other information you want to display -->
+    
+    <a href="{{ url_for('provider_admin') }}" class="btn btn-outline-dark">Back to Providers</a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Customer Profile
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Customer Profile: {{ customer.name }}</h2>
+    <p><strong>Username:</strong> {{ customer.username }}</p>
+    <p><strong>Name:</strong> {{ customer.name }}</p>
+    <p><strong>Date Created:</strong> {{ customer.date_created }}</p>
+    
+    
+    <!-- Add any other information you want to display -->
+    
+    <a href="{{ url_for('customer_admin') }}" class="btn btn-outline-dark">Back to Customers</a>
+</div>
+{% endblock %}

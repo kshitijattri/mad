@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+ HandyNest-my bookings
+{% endblock %}
+
+{% block more_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer_dashboard.css') }}">
+<style>
+    .header-container {
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space between items */
+        align-items: center; /* Center items vertically */
+        margin-top: 33px;
+        margin-bottom: 20px; /* Space below the header */
+    }
+
+    .header-container h2 {
+        margin: 0; /* Remove default margin */
+    }
+
+    .status-badge {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- {% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %} -->
+
+<div class="side-navbar" id="sideNavbar">
+  <button class="close-btn" onclick="toggleNavbar()">&#10006;</button>
+  <ul>
+    <li><a href="/customer_dashboard" class="{% if active_page == 'home' %}active{% endif %}">Home</a></li>
+    <li><a href="#" class="{% if active_page == 'services' %}active{% endif %}">Services</a></li>
+    <li><a href="/my_bookings" class="{% if active_page == 'bookings' %}active{% endif %}">My Bookings</a></li>
+    <li><a href="#" class="{% if active_page == 'contact' %}active{% endif %}">Contact Us</a></li>
+    <li><a href="#" class="{% if active_page == 'profile' %}active{% endif %}">Profile</a></li>
+    <li><a href="/customer_logout">Log Out</a></li>
+  </ul>
+</div>
+
+<button class="open-btn" onclick="toggleNavbar()">☰</button>
+
+<div class="container">
+    <div class="header-container">
+        <h2>My Bookings!</h2>
+    </div>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <!-- <th>Service ID</th> -->
+          <!-- <th>Customer ID</th> -->
+          <th>Provider ID</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Status</th>
+          <!-- <th>Remarks</th> -->
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for service_request in service_requests %}
+        <tr>
+          <td>{{ service_request.id }}</td>
+          <!-- <td>{{ service_request.service_id }}</td> -->
+          <!-- <td>{{ service_request.customer_id }}</td> -->
+          <td>{{ service_request.provider_id }}</td>
+          <td>{{ service_request.date_requested }}</td>
+          <td>{{ service_request.time }}</td>
+          <td>{{ service_request.service_type }}</td>
+          <td>{{ service_request.description }}</td>
+          <td>{{ service_request.service_address }}</td>
+          <td>
+            {% if service_request.status == 'Closed' %}
+              <span class="badge bg-success status-badge">Closed</span>
+            {% else %}
+              <span class="badge bg-warning status-badge">{{ service_request.status }}</span>
+            {% endif %}
+          </td>
+          <!-- <td>{{ service_request.remarks }}</td> -->
+          <td>
+            {% if service_request.status != 'Closed' %}
+              <form action="{{ url_for('close_service_request', service_request_id=service_request.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-outline-primary">Close</button>
+              </form>
+            {% else %}
+              <!-- Show review form only if request is closed and review hasn't been given yet -->
+              {% if not service_request.review %}
+                <a href="{{ url_for('leave_review', service_request_id=service_request.id) }}" class="btn btn-outline-info">Leave a Review</a>
+              {% else %}
+                <button class="btn btn-outline-secondary" disabled>Review Submitted</button>
+              {% endif %}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/customer_dashboard.js') }}"></script>
+{% endblock %}
